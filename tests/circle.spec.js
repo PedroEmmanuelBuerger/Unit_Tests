@@ -1,7 +1,8 @@
 /* eslint-disable max-len */
 /* eslint-disable no-unused-vars */
 
-const circle = require('../src/circle');
+const { TestScheduler } = require("jest");
+const circle = require("../src/circle");
 
 /*
   A função `circle` recebe o raio de um círculo e retorna um objeto contendo suas informações: Raio, Área e Circunferência.
@@ -21,9 +22,8 @@ const circle = require('../src/circle');
         Use esse conhecimento para te ajudar a lidar com possíveis problemas que esses testes trarão!
 */
 
-describe('4 - Implemente os casos de teste para a função `circle`', () => {
-  it('Verifica se ao receber um raio, a função `circle` retorna um objeto contendo os valores esperados', () => {
-    fail('Teste vazio!');
+describe("4 - Implemente os casos de teste para a função `circle`", () => {
+  it("Verifica se ao receber um raio, a função `circle` retorna um objeto contendo os valores esperados", () => {
     // ESCREVA SEUS TESTES ABAIXO:
     // Teste se circle retorna undefined, caso o parâmetro passado não seja um número.
     // Teste se circle retorna um objeto.
@@ -33,4 +33,23 @@ describe('4 - Implemente os casos de teste para a função `circle`', () => {
     // Teste se dentro do objeto retornado, a função retorna uma `key` com `value` igual à área correta para um círculo de raio 3.
     // Teste se a função retorna, em um objeto, os dados corretos de um círculo de raio 3.
   });
+  test("verifica se ao receber algo que não é um numero, retorna undefined", () => {
+    expect(circle("")).toBe(undefined);
+    expect(circle(true)).toBe(undefined);
+    expect(circle([])).toBe(undefined);
+    expect(circle({})).toBe(undefined);
+  });
+  test("verifica se ele retorna um objecto", () => {
+    expect(typeof circle(4)).toMatch("object");
+  });
+  test("verifica se retorna 3 propriedades", () => {
+    expect(Object.keys(circle(1)).length).toBe(3);
+  });
+  test("verifica se a função, caso não receba nenhum paramatro, retorne undefined", () => {
+    expect(circle()).toBe(undefined);
+  });
+  test("verifica se a função retorna uma `key` com `value` igual à circunferência correta para um círculo de raio 2", () => {
+  expect(circle(2).circumference).toBe(12.56)
+  });
+
 });
