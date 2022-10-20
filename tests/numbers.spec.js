@@ -22,10 +22,14 @@ describe("2 - Implemente os casos de teste para a função `numbers`", () => {
   test("verificar se um teste que a função receba [1, 2, 3(em string), 4, 5] retorne falso", () => {
     expect(numbers([1, 2, "3", 4, 5])).toBeFalsy();
   });
-test('verificar se um teste em que a função receba [1,a,3] retorne falso', () => {
-expect(numbers([1,'a',3])).toBeFalsy()
-})
-test('verificar se um teste em que a função recebe [] e retorne false', () =>{
-expect(numbers([''])).toBeFalsy()
-})
+  test("verificar se um teste em que a função receba [1,a,3] retorne falso", () => {
+    expect(numbers([1, "a", 3])).toBeFalsy();
+  });
+  test("verificar se um teste em que a função recebe [] e retorne false", () => {
+    expect(numbers([""])).toBeFalsy();
+  });
 });
+// Escreva um teste em que a função recebe [1, 2, 3, 4, 5] e retorna true
+// Escreva um teste em que a função recebe [1, 2, '3', 4, 5] e retorna false
+// Escreva um teste em que a função recebe [1, 'a', 3] e retorna false
+// Escreva um teste em que a função recebe [' '] e retorna false
