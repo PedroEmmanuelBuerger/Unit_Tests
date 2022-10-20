@@ -60,7 +60,7 @@ describe("6 - Implemente os casos de teste para a função `productDetails`", ()
     const retorno = productDetails("arroz", "feijão");
     const valor1 = retorno[0];
     const valor2 = retorno[1];
-    expect(valor1.name !== valor2.name).toBeTruthy();
+    expect(valor1.name !== valor2.name && valor1.details.productId !== valor2.details.productId).toBeTruthy();
   });
   test('verifica se o id de ambos os produtos terminam com 123', () =>{
     const retorno = productDetails('arroz', 'arroz');
