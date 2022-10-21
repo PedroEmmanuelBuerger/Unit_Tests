@@ -92,12 +92,8 @@
 // - fará a soma do preço desses itens;
 // - retornará o valor somado acrescido de 10%.
 // DICA: para isso, você precisará percorrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
-
-const pay = () => {
-};
-
 let consumo = [];
-
+let numero = 0;
 const order = (par1) => consumo.push(par1);
 
 const createMenu = (par) => {
@@ -107,34 +103,25 @@ const obj = {
     },
     consumption: consumo,
     order,
-    pay,
+    pay() {
+   for (let valores of consumo) {
+  if (valores === 'cerveja') { 
+  numero += 6.9;
+  } else if (valores === 'sopa') {
+  numero += 9.9;
+  } else numero += 3.9;
+   }
+   return numero;
+  },
 };
 consumo.length = 0;
 return obj;
 };
 
-const objetoRetornado = createMenu({ food: { coxinha: 3.9 }, drink: { agua: 3.9, cerveja: 6.9 } });
-const valores = Object.entries((objetoRetornado.fetchMenu()));
-const container = [];
-const myarray = [];
-let valorConta = 0;
-
-for (let index = 0; index < valores.length; index += 1) {
-container.push(Object.values(valores[index][1]));
-}
-for (let index = 0; index < container.length; index += 1) {
-let varatual = container[index];
-  for (let index2 = 1; index2 < 2; index2 += 1) {
-    if (varatual.length === 2) {
-    myarray.push(varatual[0]);
-    myarray.push(varatual[1]);
-    } else myarray.push(varatual[0]);
-    }
-}
-for (let numero of myarray) {
-valorConta += numero;
-}
-
-console.log(myarray);
-console.log(valorConta);
+const objet = createMenu({ food: { coxinha: 3.9, sopa: 9.9 }, drink: { agua: 3.9, cerveja: 6.9 } });
+objet.order('coxinha');
+objet.order('sopa');
+objet.order('cerveja');
+objet.order('agua');
+console.log(objet.pay());
 module.exports = createMenu;
