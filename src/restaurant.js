@@ -94,6 +94,7 @@
 // DICA: para isso, você precisará percorrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 let consumo = [];
 let numero = 0;
+let myArray = [];
 const order = (par1) => consumo.push(par1);
 
 const createMenu = (par) => {
@@ -104,16 +105,32 @@ const obj = {
     consumption: consumo,
     order,
     pay() {
-   for (let valores of consumo) {
-  if (valores === 'cerveja') { 
-  numero += 6.9;
-  } else if (valores === 'sopa') {
-  numero += 9.9;
-  } else numero += 3.9;
-   }
-   return numero;
-  },
+const valoresOrder = consumo;
+let menu = this.fetchMenu();
+const menuFood = menu.food;
+const menuDrink = menu.drink;
+let nomes = Object.keys(menuFood);
+let preco = Object.values(menuFood);
+for (let index = 0; index <= nomes.length; index += 1) {
+for (let index2 = 0; index2 < valoresOrder.length; index2 += 1) {
+  if (valoresOrder[index2] === nomes[index]) {
+  numero += preco[index];
+  }
+}
+}
+nomes = Object.keys(menuDrink);
+preco = Object.values(menuDrink);
+ for (let index = 0; index <= nomes.length; index += 1) {
+ for (let index2 = 0; index2 < valoresOrder.length; index2 += 1) {
+ if (valoresOrder[index2] === nomes[index]) {
+ numero += preco[index];
+  }
+ }
+ }
+return numero;
+},
 };
+
 consumo.length = 0;
 return obj;
 };
