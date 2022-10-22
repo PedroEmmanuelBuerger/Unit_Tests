@@ -54,7 +54,7 @@
 
 */
 
-// PASSO 1: Crie uma função `createMenu()` que, recebendo um objeto como parâmetro, retorna esse objeto no seguinte formato: 
+// PASSO 1: Crie uma função `createMenu()` que, recebendo um objeto como parâmetro, retorna esse objeto no seguinte formato:
 //  { fetchMenu: () => objetoPassadoPorParametro }.
 //
 // Agora faça o TESTE 4 no arquivo `tests/restaurant.spec.js`.
@@ -67,19 +67,19 @@
 
 //------------------------------------------------------------------------------------------
 
-// PASSO 3: Crie uma função, separada da função `createMenu()`, que, ao receber uma string como parâmetro, 
+// PASSO 3: Crie uma função, separada da função `createMenu()`, que, ao receber uma string como parâmetro,
 // adiciona essa string ao array de `objetoRetornado.consumption`. Essa nova função será adicionada à chave `order`.
-// 
-// DICA PARA DESENVOLVIMENTO: 
+//
+// DICA PARA DESENVOLVIMENTO:
 // - Definir a função `createMenu()`
-// - Definir o objeto que a `createMenu()` retorna, mas separadamente 
+// - Definir o objeto que a `createMenu()` retorna, mas separadamente
 // - E depois, definir essa nova função que será atribuída a `order`.
 // ```
 // const restaurant = {}
 //
 // const createMenu = (myMenu) => // Lógica que edita o objeto `restaurant`
 //
-// const orderFromMenu = (request) => // Lógica que adiciona à chave `consumption` de `restaurant` a string recebida no parâmetro `request`. 
+// const orderFromMenu = (request) => // Lógica que adiciona à chave `consumption` de `restaurant` a string recebida no parâmetro `request`.
 // // Essa função deve ser associada à chave `order` de `restaurant`
 // ```
 // Agora faça o TESTE 6 no arquivo `tests/restaurant.spec.js`.
@@ -94,51 +94,54 @@
 // DICA: para isso, você precisará percorrer tanto o objeto da chave `food` quanto o objeto da chave `drink`.
 let consumo = [];
 let numero = 0;
-let myArray = [];
 const order = (par1) => consumo.push(par1);
 
 const createMenu = (par) => {
-const obj = {
-  fetchMenu() {
-    return par;
+  const obj = {
+    fetchMenu() {
+      return par;
     },
     consumption: consumo,
     order,
     pay() {
-const valoresOrder = consumo;
-let menu = this.fetchMenu();
-const menuFood = menu.food;
-const menuDrink = menu.drink;
-let nomes = Object.keys(menuFood);
-let preco = Object.values(menuFood);
-for (let index = 0; index <= nomes.length; index += 1) {
-for (let index2 = 0; index2 < valoresOrder.length; index2 += 1) {
-  if (valoresOrder[index2] === nomes[index]) {
-  numero += preco[index];
-  }
-}
-}
-nomes = Object.keys(menuDrink);
-preco = Object.values(menuDrink);
- for (let index = 0; index <= nomes.length; index += 1) {
- for (let index2 = 0; index2 < valoresOrder.length; index2 += 1) {
- if (valoresOrder[index2] === nomes[index]) {
- numero += preco[index];
-  }
- }
- }
-return numero;
-},
-};
+      for (let valores in consumo) {
+        if (par.food[consumo[valores]] !== undefined) {
+          numero += par.food[consumo[valores]];
+        } else if (par.drink[consumo[valores]] !== undefined) {
+          numero += par.drink[consumo[valores]];
+        }
+      }
+    const precoComTaxa = ((numero / 100) * 10 + numero).toFixed(2);
+    return Number(precoComTaxa);
+    },
+  };
 
-consumo.length = 0;
-return obj;
+  consumo.length = 0;
+  return obj;
+//   pay() {
+//  const valoresOrder = consumo;
+//  let menu = this.fetchMenu();
+//  const menuFood = menu.food;
+//  const menuDrink = menu.drink;
+//  let nomes = Object.keys(menuFood);
+//  let preco = Object.values(menuFood);
+//  for (let index = 0; index <= nomes.length; index += 1) {
+//  for (let index2 = 0; index2 < valoresOrder.length; index2 += 1) {
+//    if (valoresOrder[index2] === nomes[index]) {
+//    numero += preco[index];
+//    }
+//  }
+//  }
+//  nomes = Object.keys(menuDrink);
+//  preco = Object.values(menuDrink);
+//   for (let index = 0; index <= nomes.length; index += 1) {
+//   for (let index2 = 0; index2 < valoresOrder.length; index2 += 1) {
+//   if (valoresOrder[index2] === nomes[index]) {
+//   numero += preco[index];
+//    }
+//   }
+//   }
+//  return numero;
+//  },
 };
-
-const objet = createMenu({ food: { coxinha: 3.9, sopa: 9.9 }, drink: { agua: 3.9, cerveja: 6.9 } });
-objet.order('coxinha');
-objet.order('sopa');
-objet.order('cerveja');
-objet.order('agua');
-console.log(objet.pay());
 module.exports = createMenu;

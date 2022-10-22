@@ -121,11 +121,12 @@ describe("10 - Implemente a função `createMenu`, bem como seus casos de teste"
   // Agora faça o TESTE 8 deste arquivo.
   // --------------------------------------------------------------------------------------
 test('Verifique se, ao chamar `objetoRetornado.pay()`, retorna-se a soma dos preços de tudo que foi pedido, conforme registrado em `objetoRetornado.consumption`', ()=> {
-  const objetoRetornado = createMenu({ food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} });
-  objetoRetornado.order('coxinha');
-  objetoRetornado.order('agua');
-  objetoRetornado.order('coxinha');
-  expect(objetoRetornado.pay()).toBe(11.7)
+  const objet = createMenu({ food: {'coxinha': 3.9, 'sopa': 9.9}, drink: {'agua': 3.9, 'cerveja': 6.9} });
+  objet.order('coxinha');
+  objet.order('sopa');
+  objet.order('cerveja');
+  objet.order('agua');
+  expect(objet.pay()).toBe(27.06)
 })
   // TESTE 8: Verifique se, ao chamar `objetoRetornado.pay()`, retorna-se a soma dos preços de tudo que foi pedido, conforme registrado em `objetoRetornado.consumption`
   // ```
