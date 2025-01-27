@@ -1,29 +1,25 @@
 # Unit Tests
-O projeto Unit Tests é um repositório desenvolvido para demonstrar a implementação de testes unitários em uma aplicação.
 
-## Funcionalidades
-O projeto possui as seguintes funcionalidades:
+The Unit Tests project is a repository developed to demonstrate the implementation of unit tests in an application.
 
-- Testes unitários: são implementados testes para validar o funcionamento correto das unidades de código, como funções e métodos, isoladamente.
-- Cobertura de código: é realizada a medição da cobertura de código pelos testes unitários para verificar a eficácia dos testes.
+## Features
 
-## Tecnologias Utilizadas
-O projeto foi desenvolvido utilizando as seguintes tecnologias:
-- JavaScript
-- Jest (Framework de testes)
+The project includes the following features:
 
-## Instalação
-Para utilizar o projeto Unit Tests localmente, siga os passos abaixo:
-1. Clone o repositório para sua máquina local:
-git clone https://github.com/PedroEmmanuelBuerger/project-Unit_Tests.git
-2. Navegue até a pasta do projeto:
-cd project-Unit_Tests
-3. Instale as dependências do projeto: npm install 
-4. Execute os testes unitários: npm run test
+- **Unit Tests**: Unit tests are implemented to validate the correct functioning of code units, such as functions and methods, in isolation.
+- **Code Coverage**: Code coverage is measured by the unit tests to check the effectiveness of the tests.
 
+## Technologies Used
 
-## Principais Aprendizados
-Durante o desenvolvimento deste projeto, foram explorados conceitos de testes unitários e boas práticas de teste de software. Os testes unitários são importantes para garantir a qualidade do código e identificar possíveis problemas e erros antes mesmo de serem encontrados em um ambiente de produção.
+The project was developed using the following technologies:
 
-## Conclusão
-O projeto Unit Tests demonstra a implementação de testes unitários em uma aplicação, visando garantir a qualidade do código e a confiabilidade do software. Com a utilização de ferramentas como o Jest, é possível criar testes automatizados e eficientes. Aproveite a experiência oferecida pelo projeto Unit Tests!
+- **JavaScript**
+- **Jest** (Testing Framework)
+
+## Key Learnings
+
+During the development of this project, concepts of unit testing and best testing practices were explored. Unit tests are important to ensure code quality and identify potential problems and errors before they are found in a production environment.
+
+## Conclusion
+
+The Unit Tests project demonstrates the implementation of unit tests in an application, aiming to ensure code quality and software reliability. By using tools like Jest, it is possible to create automated and efficient tests. Enjoy the experience offered by the Unit Tests project!
